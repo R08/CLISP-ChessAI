@@ -1,0 +1,65 @@
+
+
+;;; Represents whether or not if each space on the board is ocupied by a piece.
+(let ((all_pieces (blank-bb))
+      
+      ;;; Current Game-state: an array type, that holds all the pieces for each 
+      ;;   player by name (ex. Wp Bk...) according to thier respective positions
+      ;;   on the board. 
+      (game_state (make-array 64 :element-type 'string :initial-element "...."))
+
+      ;; Players
+      (player1 (new-player1))
+      (player2 (new-player2)))
+
+#|---------------------------
+
+     FUNCTION DEFINITIONS
+
+----------------------------|#
+
+
+;==;Update-all-pieces()
+;;;    Desc: Updates all_pieces bitboard to represent all currently held positions.
+;;     Calls functions: Update-player-pieces {player}
+;;                      clear-bb             {bb-util}
+                        
+(defun update-all-pieces ()
+  (clear-bb all_pieces)
+
+  (update-player-pieces player1)
+  (update-player-pieces player2)
+
+  (loop for i from 0 to 63 do
+       (setf all_pieces (bit-ior (player_pieces player1) (player_pieces player2)))))
+
+
+;==;Update-game-state()
+;;;    Desc:  For both players iterate through each piece's pos bb and for 
+;;              each bit that == 1 set the corresponding index of game-state to 
+;;              the pieces name.
+;;     Calls functions: update-all-pieces  {game}
+
+(defun update-game-state ()
+
+  (update-all-pieces)
+
+  ;; Player1 (white)
+  (loop for i from 0 to 5 do
+       (loop for j from 0 to 63 do
+	    (if (eq (bit (pos (nth i (pieces player1))) j) 1)
+		(setf (aref game_state j) (name (nth i (pieces player1)))))))
+
+  ;; Player2 (black)
+  (loop for i from 0 to 5 do
+       (loop for j from 0 to 63 do
+	    (if (eq (bit (pos (nth i (pieces player2))) j) 1)
+		(setf (aref game_state j) (name (nth i (pieces player2))))))))
+
+
+;==;Clear-game-state()
+;;;   Desc: Clear the game-state
+
+(defun clear-game-state ()
+  (loop for i from 0 to 63 do
+       (setf (aref game_state i) '__))))

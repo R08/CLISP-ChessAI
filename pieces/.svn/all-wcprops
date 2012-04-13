@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 30
+/svn/!svn/ver/219/trunk/pieces
+END
+rook.lisp
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/209/trunk/pieces/rook.lisp
+END
+queen.lisp
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/164/trunk/pieces/queen.lisp
+END
+knight.lisp
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/205/trunk/pieces/knight.lisp
+END
+bishop.lisp
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/205/trunk/pieces/bishop.lisp
+END
+pawn.lisp
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/208/trunk/pieces/pawn.lisp
+END
+piece.lisp
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/219/trunk/pieces/piece.lisp
+END
+king.lisp
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/211/trunk/pieces/king.lisp
+END
